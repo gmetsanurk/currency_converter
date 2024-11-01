@@ -1,0 +1,5 @@
+CurrencyConverter/Info.plist
+CurrentConverter.xcodeproj
+NetworkManager/Info.plist
+NetworkManager/.swiftpm/
+CurrentConverterAppTests/Info.plist

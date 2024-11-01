@@ -1,0 +1,53 @@
+name: CurrentConverter
+options:
+  bundleIdPrefix: com.currentconverter
+  deploymentTarget:
+    iOS: "14.0"
+  xcodeVersion: "16.0"
+packages:
+  SnapKit:
+    url: https://github.com/SnapKit/SnapKit
+    version: 5.7.1
+  RealmSwift:
+    url: https://github.com/realm/realm-swift
+    version: 10.49.0
+  Swinject:
+    url: https://github.com/Swinject/Swinject.git
+    version: 2.9.1
+  Moya:
+    url: https://github.com/Moya/Moya
+    version: 15.0.0
+  NetworkManager:
+    path: NetworkManager
+targets:
+  CurrentConverterApp:
+    settings:
+        base:
+        #SWIFT_ACTIVE_COMPILATION_CONDITIONS: '$(inherited) USING_DELEGATES'
+    type: application
+    platform: iOS
+    sources: [CurrencyConverter]
+    info:
+        path: CurrencyConverter/Info.plist
+    dependencies:
+        - package: SnapKit
+        - package: RealmSwift
+        - package: Swinject
+        - package: NetworkManager
+        #- target: NetworkManager
+  CurrentConverterAppTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [CurrentConverterAppTests]
+    dependencies:
+        - target: CurrentConverterApp
+    info:
+        path: CurrentConverterAppTests/Info.plist
+    
+
+#  NetworkManager:
+#    type: framework
+#    platform: iOS
+#    sources: [NetworkManager]
+#    info:
+#      path: NetworkManager/Info.plist
